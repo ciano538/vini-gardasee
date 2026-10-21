@@ -56,10 +56,17 @@ export default function Home() {
 
   return (
     <div className="shell">
+      <header className="header">
+        <img src="/logo.png" alt="L'AI dei vini e delle cantine del territorio Gardesano" />
+        <div className="subtitle">Vini e cantine del territorio</div>
+      </header>
+
       <div className="messages">
-        <div className="hero">
-          <img src="/logo.png" alt="L'AI dei vini e delle cantine del territorio Gardesano" />
-        </div>
+        {isStart && (
+          <div className="hero">
+            <img src="/logo.png" alt="" />
+          </div>
+        )}
         {messages.map((m, i) => (
           <div key={i} className={`row ${m.role === "user" ? "user" : ""}`}>
             <div className={`bubble ${m.role === "user" ? "user" : "bot"}`}>{m.content}</div>
